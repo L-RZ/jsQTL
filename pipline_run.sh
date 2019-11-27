@@ -1,11 +1,21 @@
 # jsQTL analysis pipline
-# require python 2.7
-# 
 
-# 1st
-# get junction bed file into junct_bed
+# require python 2.7, samtools, regtools
  
 
+###########################
+# public software or tools
+###########################
+## 1st extract and count the unique junction reads from the bam or cram 
+## 
+## extract unique junction reads
+# samtools view -bS -h -q 10 ${INPUT_CRAM} --reference ${INPUT_REF} -o ${INPUT_CRAM}.uniq.bam
+# samtools index ${INPUT_CRAM}.uniq.bam ${INPUT_CRAM}.uniq.bai
+## count the junction reads and output bed file in junct_bed/
+# regtools junction extract -a 4 -i 50 -o ${OUTPUT_BED} ${INPUT_CRAM}.uniq.bam 
+
+##########################
+# self-script
 #2nd
 # merge_sortStrand_splitChr_dsub.sh
 tissue=tissue1
@@ -53,6 +63,7 @@ python py/reorder_removeRNAwithUnmapGeno_v0.2.py ./junct_extract/${tissue}_junct
 
 
 # 5th 
+# find Junction skipping event
 # findJun_gtf_filter_dsub.sh
 
 output_dir=whole_genome_sumLongJun_gtf_strand
@@ -107,7 +118,8 @@ python py/heter_skipExon_expr_test_v3.9.0s_mw_1.py \
 -o ${output_dir}/${tissue}_asj_+_chr${num}_sumLJ_filterInOut_outlier5_SK_np_mw_test \
 -p 0.01
 
-# 7th
+# 7th 
+# summary the output file 
 # loop_cat_sort_uniq_dsub.sh
 output_dir=${tissue}_asj_chrAll_n0.05
 if [ ! -d "${output_dir}" ]; then
@@ -135,7 +147,6 @@ python py/find_minp_snp_v0.2.py ${output_dir}/chr${num}_${tissue}.geno_gp_p_sort
 ${output_dir}/chr${num}_${tissue}.geno_gp_p_sorted_uniq_np_minp.txt
 
 # 
-
 # 8th Fine-mapping with LD
 
 output_dir=${tissue}_asj_chrAll_p0.01_n0.05_r2
