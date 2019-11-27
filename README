@@ -1,18 +1,17 @@
 This is the jsQTL analysis pipline. 
 It runs on Linux system.
 It requires:
-  python 2.7.11
+  python >= 2.7.9
   python package:
     HTSeq >= 0.7.2
     numpy 1.14.3
-    pandas 0.18.1
+    pandas >=0.18.1
     matplotlib 2.0.2
     
-
 All scripts are in the py folder:
   py/*.py
 
-The small demo data include: 
+The small demo data are: 
   junct_bed/*.bed
   toy.bed
   toy.bim
