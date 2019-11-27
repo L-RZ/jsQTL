@@ -7,6 +7,7 @@ It requires:
     numpy 1.14.3
     pandas >=0.18.1
     matplotlib 2.0.2
+  plink 1.9
     
 All scripts are in the py folder:
   py/*.py
