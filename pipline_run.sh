@@ -1,4 +1,7 @@
-# jsQTL analysis pipline
+# jsQTL analysis pipline demo
+# copy folder "junct_bed" and "py" to working folder
+# run the pipline_run.sh
+# sh pipline_run.sh
 
 # require python 2.7, samtools, regtools
  
