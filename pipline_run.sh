@@ -4,14 +4,12 @@
 # run the pipline_run.sh
 # sh pipline_run.sh
 
-# require python 2.7, samtools, regtools
- 
 
 ###########################
 # public software or tools
 ###########################
 ## 1st extract and count the unique junction reads from the bam or cram 
-## 
+## require  samtools, regtools
 ## extract unique junction reads
 # samtools view -bS -h -q 10 ${INPUT_CRAM} --reference ${INPUT_REF} -o ${INPUT_CRAM}.uniq.bam
 # samtools index ${INPUT_CRAM}.uniq.bam ${INPUT_CRAM}.uniq.bai
@@ -20,6 +18,7 @@
 
 ##########################
 # self-script
+# require python2.7, HTSeq, numpy, pandas, matplotlib, plink1.9
 # 2nd
 # merge_sortStrand_splitChr_dsub.sh
 tissue=tissue1
@@ -47,7 +46,7 @@ python ../py/split_junct_by_chr.py ${tissue}_junct_extract_merge.sorted+.txt
 cd ..
 
 # 3rd reorder geno 
-# reorder genotype sample to match RNA sample and remove unmatched sample
+# reorder genotype sample to match RNA sample and remove unmatched genotype sample
 dir=geno_${tissue}
 if [ ! -d "${dir}" ]; then
   mkdir ${dir}
@@ -90,7 +89,7 @@ python ../py/filter_calc_1.3.py ${tissue}_junct_exonskipping_+_${num}_sumLJ.txt 
 python ../py/filter_calc_1.3.py ${tissue}_junct_exonskipping_-_${num}_sumLJ.txt filterInOut
 
 ### 5.5th 
-# filter count to n0.05(leave-one-out)
+# count to outlier(leave-one-out) and filter by number of outlier
 
 python ../py/filter_calc_ckeck_Ninout_v0.1.py ${tissue}_junct_exonskipping_-_${num}_sumLJ_filterInOut_para.txt \
 ${tissue}_junct_exonskipping_-_${num}_sumLJ_filterInOut_para_n0.05.txt
@@ -105,7 +104,7 @@ ${tissue}_junct_exonskipping_+_${num}_sumLJ_filterInOut_para_n0.05.txt \
 ${tissue}_junct_exonskipping_+_${num}_sumLJ_filterInOut_outlier5.txt
 cd ..
 
-# 6th MW test jsQTL
+# 6th test jsQTL
 # asj_chr_SKrate_np_ks_test_dsub.sh
 
 output_dir=chrAll_SK_np_mw
@@ -124,7 +123,7 @@ python py/heter_skipExon_expr_test_v3.9.0s_mw_1.py \
 -p 0.01
 
 # 7th 
-# summary the output file 
+# summary the output file from the jsQTL test
 # loop_cat_sort_uniq_dsub.sh
 output_dir=${tissue}_asj_chrAll_n0.05
 if [ ! -d "${output_dir}" ]; then
@@ -146,8 +145,9 @@ cat chrAll_SK_np_mw/${tissue}_asj_+_chr${num}_sumLJ_filterInOut_outlier5_SK_np_m
  	chrAll_SK_np_mw/${tissue}_asj_-_chr${num}_sumLJ_filterInOut_outlier5_SK_np_mw_test/*.geno_gp_count_sig.txt  \
  	|sort -u -k 1,1 -k 2,2 -r > ${output_dir}/chr${num}_${tissue}.geno_gp_count_sig_uniq.txt
 
+# juncton reads count of significate jsQTL
 python py/extract_sig_p_v0.1.py ${output_dir}/chr${num}_${tissue}.geno_gp_count_sig_uniq.txt ${output_dir}/chr${num}_${tissue}.geno_gp_p_sorted_uniq.txt
-
+# the most significate jsQTL variant for each junction-skipping event 
 python py/find_minp_snp_v0.2.py ${output_dir}/chr${num}_${tissue}.geno_gp_p_sorted_uniq.txt \
 ${output_dir}/chr${num}_${tissue}.geno_gp_p_sorted_uniq_np_minp.txt
 
