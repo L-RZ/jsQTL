@@ -1,5 +1,6 @@
 # jsQTL analysis pipline demo
-# copy folder "junct_bed" and "py" to working folder
+# copy folder "junct_bed" and "py" to working folder.
+# copy toy.bed toy.bim toy.fam toy.geno to working folder.
 # run the pipline_run.sh
 # sh pipline_run.sh
 
@@ -19,7 +20,7 @@
 
 ##########################
 # self-script
-#2nd
+# 2nd
 # merge_sortStrand_splitChr_dsub.sh
 tissue=tissue1
 
@@ -46,6 +47,7 @@ python ../py/split_junct_by_chr.py ${tissue}_junct_extract_merge.sorted+.txt
 cd ..
 
 # 3rd reorder geno 
+# reorder genotype sample to match RNA sample and remove unmatched sample
 dir=geno_${tissue}
 if [ ! -d "${dir}" ]; then
   mkdir ${dir}
@@ -53,7 +55,7 @@ fi
 
 python py/reorder_genowithRNA_v1.0.py junct_extract/${tissue}_junct_extract_merge.txt toy.geno ${dir}/toy.${tissue}.geno
 
-# 4th reorder RNA
+# 4th reorder RNA sample to match genotype sample and remove unmatched sample
 # reorder_rnaID_strand_dsub.sh
 num=1 # chromosome number 1-22. In the toy example, there is only chromosom 1. 
 
@@ -66,7 +68,7 @@ python py/reorder_removeRNAwithUnmapGeno_v0.2.py ./junct_extract/${tissue}_junct
 
 
 # 5th 
-# find Junction skipping event
+# find Junction skipping event and filter with leave-one-out test
 # findJun_gtf_filter_dsub.sh
 
 output_dir=whole_genome_sumLongJun_gtf_strand
