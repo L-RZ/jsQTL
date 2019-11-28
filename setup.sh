@@ -1,6 +1,6 @@
 # running on ubuntu:16.04
 
-# self scritp dependence
+# self script dependence
 # lib: htseq pandas numpy scipy matplotlib
 
 apt-get update && \
