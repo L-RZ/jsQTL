@@ -1,0 +1,29 @@
+PLINK v1.90b6.12 64-bit (28 Oct 2019)
+Options in effect:
+  --bfile ../toy
+  --ld-snp-list chr1_tissue1.geno_gp_p_sorted_uniq_np_top95_minp_snpID.txt
+  --ld-window 9999999
+  --ld-window-kb 500
+  --ld-window-r2 0
+  --out chr1_tissue1.geno_gp_p_sorted_uniq_np_top95_minp_snpID
+  --r2 in-phase dprime with-freqs
+
+Hostname: WMDB6-44D
+Working directory: /Users/ruizeliu/Documents/lrz/jsQTL_data/test/tissue1_asj_chrAll_p0.01_n0.05_r2
+Start time: Wed Nov 27 13:56:55 2019
+
+Random number seed: 1574881015
+16384 MB RAM detected; reserving 8192 MB for main workspace.
+10 variants loaded from .bim file.
+20 people (0 males, 0 females, 20 ambiguous) loaded from .fam.
+Ambiguous sex IDs written to
+chr1_tissue1.geno_gp_p_sorted_uniq_np_top95_minp_snpID.nosex .
+Using up to 4 threads (change this with --threads).
+Before main variant filters, 20 founders and 0 nonfounders present.
+Calculating allele frequencies... done.
+10 variants and 20 people pass filters and QC.
+Note: No phenotypes present.
+--r2 in-phase dprime with-freqs... done.
+Results written to chr1_tissue1.geno_gp_p_sorted_uniq_np_top95_minp_snpID.ld .
+
+End time: Wed Nov 27 13:56:55 2019

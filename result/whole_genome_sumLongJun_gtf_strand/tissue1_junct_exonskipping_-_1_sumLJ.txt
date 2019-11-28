@@ -1,0 +1,5 @@
+id	isoform_type	GTEX-1-1.uniq.junction	GTEX-10-1.uniq.junction	GTEX-11-1.uniq.junction	GTEX-12-1.uniq.junction	GTEX-13-1.uniq.junction	GTEX-14-1.uniq.junction	GTEX-15-1.uniq.junction	GTEX-16-1.uniq.junction	GTEX-17-1.uniq.junction	GTEX-18-1.uniq.junction	GTEX-19-1.uniq.junction	GTEX-2-1.uniq.junction	GTEX-20-1.uniq.junction	GTEX-3-1.uniq.junction	GTEX-4-1.uniq.junction	GTEX-5-1.uniq.junction	GTEX-6-1.uniq.junction	GTEX-7-1.uniq.junction	GTEX-8-1.uniq.junction	GTEX-9-1.uniq.junction
+1_200000_180000_150000_-|GENE5	S	66	64	55	43	93	51	83	63	42	67	14	98	24	9	78	39	53	21	48	84
+1_200000_180000_150000_-|GENE5	N	65	67	51	7	41	25	5	65	52	90	57	55	49	80	63	88	35	96	65	82
+1_100000_90000_85000_80000_-|GENE4	S	137	41	92	38	93	44	33	41	86	46	93	37	87	44	90	38	34	98	39	82
+1_100000_90000_85000_80000_-|GENE4	N	44	107	76	104	80	109	106	105	76	102	74	109	72	107	71	108	104	73	108	78
