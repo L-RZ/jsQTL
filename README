@@ -9,7 +9,7 @@ It requires:
     matplotlib 2.0.2
   plink 1.9
     
-All scripts are in the py folder:
+All scripts for analysis are in the py folder:
   py/*.py
 
 The small demo data are: 
@@ -18,6 +18,9 @@ The small demo data are:
   toy.bim
   toy.fam
   toy.geno
+
+The result of demo are:
+  result/
 
 The detail analysis steps are all in the pipline_run.sh file.
 
