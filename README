@@ -59,9 +59,9 @@ The small demo data are:
   junct_bed/*.bed : individual junction reads data in bed format generated using "junction extract" in regtools (https://regtools.readthedocs.io/en/latest/)
   toy.bed toy.bim toy.fam : genotype data generated using the --make-bed option in PLINK (HTTP://pngu.mgh.harvard.edu/~purcell/plink/). 
   toy.geno : Customizing genotype data format including:
-   CHROM:chromosome,	POS:postion,	ID:snp id,	REF: reference allele,	ALT: alternative allele,	QUAL: quality same as VCF, 
-   FILTER: filter type,	INFO:information,	EXP_FREQ_A1:reference allele frequency,   MISS: missing, 
-   SampleID1, SampleID2, ..., SampleIDn".  
+   CHROM:chromosome, POS:postion, ID:snp id, REF: reference allele, ALT: alternative allele, QUAL: quality same as VCF, 
+   FILTER: filter type, INFO:information, EXP_FREQ_A1:reference allele frequency, MISS: missing, 
+   SampleID1, SampleID2, ..., SampleIDn".
   
 
 The python scripts for analysis are in the py folder:
