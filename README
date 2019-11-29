@@ -1,6 +1,47 @@
-This is the jsQTL analysis pipline. 
-It runs on Linux system.
-It requires:
+----------------------
+Copyright
+----------------------
+Copyright (c) 2015, Ruize Liu, Hailiang Huang and Mark J Daly, Analytic and Translational Genetics Unit, Massachusetts General Hospital, Boston MA
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this
+   list of conditions and the following disclaimer.
+2. Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+The views and conclusions contained in the software and documentation are those
+of the authors and should not be interpreted as representing official policies,
+either expressed or implied, of the FreeBSD Project.
+
+----------------------
+Synopsis
+----------------------
+This is a pipline of method for junction splice QTL (jsQTL) analysis. 
+The method is desiged to identify junction-skipping events from the RNA-seq data from GTEx and their regulatory variants.
+Method details available at: https://www.biorxiv.org/content/10.1101/804039v1
+
+----------------------
+Prerequisites
+----------------------
+Linux system is required for this analysis pipline.
+e.g.: Ubuntu 16.04
+
+Softwares or packages required:
   python >= 2.7.9
   python package:
     HTSeq >= 0.7.2
@@ -8,7 +49,18 @@ It requires:
     pandas >=0.18.1
     matplotlib 2.0.2
   plink 1.9
-    
+
+
+----------------------
+Usage
+----------------------
+The small demo data are: 
+  junct_bed/*.bed : individual junction reads data in bed format generated using "junction extract" in regtools (ttps://regtools.readthedocs.io/en/latest/)
+  toy.bed toy.bim toy.fam : genotype data generated using the --make-bed option in PLINK (HTTP://pngu.mgh.harvard.edu/~purcell/plink/). 
+  toy.geno : Customizing genotype data format with header 
+  CHROM:chromosome,	POS:postion,	ID:snp id,	REF: reference allele,	ALT: alternative allele,	QUAL: quality same as VCF, FILTER: filter type,	INFO:information,	EXP_FREQ_A1:reference allele frequency,	MISS: missing, SampleID1, SampleID2, ...SampleIDn".  
+
+
 All scripts for analysis are in the py folder:
   py/*.py
 
