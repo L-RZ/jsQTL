@@ -1,7 +1,7 @@
 ----------------------
 Copyright
 ----------------------
-Copyright (c) 2015, Ruize Liu, Hailiang Huang and Mark J Daly, Analytic and Translational Genetics Unit, Massachusetts General Hospital, Boston MA
+Copyright (c) 2019, Ruize Liu, Hailiang Huang and Mark J Daly, Analytic and Translational Genetics Unit, Massachusetts General Hospital, Boston MA
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
@@ -57,22 +57,21 @@ Usage
 The small demo data are: 
   junct_bed/*.bed : individual junction reads data in bed format generated using "junction extract" in regtools (ttps://regtools.readthedocs.io/en/latest/)
   toy.bed toy.bim toy.fam : genotype data generated using the --make-bed option in PLINK (HTTP://pngu.mgh.harvard.edu/~purcell/plink/). 
-  toy.geno : Customizing genotype data format with header 
-  CHROM:chromosome,	POS:postion,	ID:snp id,	REF: reference allele,	ALT: alternative allele,	QUAL: quality same as VCF, FILTER: filter type,	INFO:information,	EXP_FREQ_A1:reference allele frequency,	MISS: missing, SampleID1, SampleID2, ...SampleIDn".  
+  toy.geno : Customizing genotype data format including:
+   CHROM:chromosome,	POS:postion,	ID:snp id,	REF: reference allele,	ALT: alternative allele,	QUAL: quality same as VCF, 
+   FILTER: filter type,	INFO:information,	EXP_FREQ_A1:reference allele frequency,   MISS: missing, 
+   SampleID1, SampleID2, ..., SampleIDn".  
+  
 
-
-All scripts for analysis are in the py folder:
+The python scripts for analysis are in the py folder:
   py/*.py
 
-The small demo data are: 
-  junct_bed/*.bed
-  toy.bed
-  toy.bim
-  toy.fam
-  toy.geno
-
-The result of demo are:
+The result of demo are in "result/" folder:
   result/
 
-The detail analysis steps are all in the pipline_run.sh file.
+The detail analysis steps are all in the "pipline_run.sh" file.
 
+
+jsQTL analysis can be performed by calling sh pipline_run.sh in bash. 
+jsQTL analysis test result are in "chrAll_SK_np_mw/" folder.
+jsQTL Fine-mapping result are in "tissue1_asj_chrAll_p0.01_n0.05_r2/" folder.
