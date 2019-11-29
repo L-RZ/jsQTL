@@ -73,5 +73,5 @@ The detail analysis steps are all in the "pipline_run.sh" file.
 
 
 jsQTL analysis can be performed by calling sh pipline_run.sh in bash. 
-jsQTL analysis test result are in "chrAll_SK_np_mw/" folder.
-jsQTL Fine-mapping result are in "tissue1_asj_chrAll_p0.01_n0.05_r2/" folder.
+jsQTL analysis test result are in "chrAll_SK_np_mw/" folder. The test p-value result are in "*.geno_gp_p.txt" files.
+jsQTL Fine-mapping result are in "tissue1_asj_chrAll_p0.01_n0.05_r2/" folder. The Fine-mapping post-probability result are in "*_geno_gp_p_sorted_uniq_np_top95.txt"
