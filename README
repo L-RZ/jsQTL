@@ -55,7 +55,7 @@ Softwares or packages required:
 Usage
 ----------------------
 The small demo data are: 
-  junct_bed/*.bed : individual junction reads data in bed format generated using "junction extract" in regtools (ttps://regtools.readthedocs.io/en/latest/)
+  junct_bed/*.bed : individual junction reads data in bed format generated using "junction extract" in regtools (https://regtools.readthedocs.io/en/latest/)
   toy.bed toy.bim toy.fam : genotype data generated using the --make-bed option in PLINK (HTTP://pngu.mgh.harvard.edu/~purcell/plink/). 
   toy.geno : Customizing genotype data format including:
    CHROM:chromosome,	POS:postion,	ID:snp id,	REF: reference allele,	ALT: alternative allele,	QUAL: quality same as VCF, 
