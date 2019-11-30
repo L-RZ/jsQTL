@@ -31,8 +31,8 @@ either expressed or implied, of the FreeBSD Project.
 ----------------------
 Synopsis
 ----------------------
-This is a pipline of method for junction splice QTL (jsQTL) analysis. 
-The method is desiged to identify junction-skipping events from the RNA-seq data from GTEx and their regulatory variants.
+This is a pipline for junction skipping QTL (jsQTL) analysis. 
+The method is desiged to identify junction-skipping events in the RNA-seq data from GTEx and their regulatory variants.
 Method details available at: https://www.biorxiv.org/content/10.1101/804039v1
 
 ----------------------
@@ -43,14 +43,14 @@ e.g.: Ubuntu 16.04
 
 Softwares or packages required:
   python >= 2.7.9
-  python package:
+  python packages:
     HTSeq >= 0.7.2
     numpy 1.14.3
     pandas >=0.18.1
     matplotlib 2.0.2
   plink 1.9
 
-Install time on desktop computer: < 5 minuters
+Install time on desktop computer: < 5 minuters (depend on network conditions）
 
 ----------------------
 Usage
@@ -59,7 +59,7 @@ The small demo data are:
   junct_bed/*.bed : individual junction reads data in bed format generated using "junction extract" in regtools (https://regtools.readthedocs.io/en/latest/)
   toy.bed toy.bim toy.fam : genotype data generated using the --make-bed option in PLINK (HTTP://pngu.mgh.harvard.edu/~purcell/plink/). 
   toy.geno : Customizing genotype data format including:
-   CHROM:chromosome, POS:postion, ID:snp id, REF: reference allele, ALT: alternative allele, QUAL: quality same as VCF, 
+   CHROM:chromosome, POS:postion, ID:snp id, REF: reference allele, ALT: alternative allele, QUAL: quality same as in VCF, 
    FILTER: filter type, INFO:information, EXP_FREQ_A1:reference allele frequency, MISS: missing, 
    SampleID1, SampleID2, ..., SampleIDn".
   
@@ -67,15 +67,15 @@ The small demo data are:
 The python scripts for analysis are in the py folder:
   py/*.py
 
-The result of demo are in "result/" folder:
+Results of demo are in "result/" folder:
   result/
 
 The detail analysis steps are all in the "pipline_run.sh" file.
 
 
 jsQTL analysis can be performed by calling sh pipline_run.sh in bash. It may take less than 2 minuters. 
-jsQTL analysis test result are in "chrAll_SK_np_mw/" folder. The test p-value result are in "*.geno_gp_p.txt" files.
-jsQTL Fine-mapping result are in "tissue1_asj_chrAll_p0.01_n0.05_r2/" folder. The Fine-mapping post-probability result are in "*_geno_gp_p_sorted_uniq_np_top95.txt"
+jsQTL analysis test results are in "chrAll_SK_np_mw/" folder. The test p-value results are in "*.geno_gp_p.txt" files.
+jsQTL Fine-mapping results are in "tissue1_asj_chrAll_p0.01_n0.05_r2/" folder. Fine-mapping post-probability results are in "*_geno_gp_p_sorted_uniq_np_top95.txt"
 
 Run time for demo on desktop computer: < 2 minuters
 
